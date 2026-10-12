@@ -1,0 +1,29 @@
+export type CategoryColor = 'green' | 'amber' | 'blue' | 'violet' | 'slate' | 'red';
+
+export type CategoryIcon = 'shopping-basket' | 'utensils' | 'car' | 'plane' | 'package' | 'fuel';
+
+export interface Category {
+  id: string;
+  name: string;
+  color: CategoryColor;
+  icon: CategoryIcon;
+}
+
+export interface Expense {
+  id: string;
+  merchant: string;
+  purchaseDate: string;
+  totalMinor: number;
+  currency: string;
+  taxMinor: number | null;
+  categoryId: string | null;
+  notes: string | null;
+  source: 'scan' | 'manual';
+  syncStatus: 'synced' | 'pending' | 'conflict';
+}
+
+export interface PlanUsage {
+  planId: 'free' | 'pro';
+  scanCount: number;
+  monthlyScanLimit: number | null;
+}

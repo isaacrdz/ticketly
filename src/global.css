@@ -1,0 +1,67 @@
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css";
+@import "nativewind/theme";
+
+@theme {
+  --color-background: #f7f6f2;
+  --color-surface: #fefdfb;
+  --color-surface-muted: #edebe4;
+  --color-border: #e8e5dc;
+  --color-foreground: #14171f;
+  --color-muted: #6b6a66;
+  --color-inverse: #fefdfb;
+  --color-inverse-surface: #14171f;
+  --color-brand: #2f7653;
+  --color-brand-track: #e6e4dc;
+
+  --color-tint-green: #d4f1e0;
+  --color-tint-green-fg: #1c5a3a;
+  --color-tint-amber: #fdebc8;
+  --color-tint-amber-fg: #8a5a0b;
+  --color-tint-blue: #dbe7fb;
+  --color-tint-blue-fg: #2b4a85;
+  --color-tint-violet: #e8e0fa;
+  --color-tint-violet-fg: #5a3f9a;
+  --color-tint-slate: #e3e6ee;
+  --color-tint-slate-fg: #3a4256;
+  --color-tint-red: #fde0dc;
+  --color-tint-red-fg: #a23a2c;
+
+  --font-sans: "Inter_400Regular";
+  --font-sans-medium: "Inter_500Medium";
+  --font-sans-semibold: "Inter_600SemiBold";
+  --font-mono: "JetBrainsMono_500Medium";
+  --font-mono-bold: "JetBrainsMono_700Bold";
+
+  --radius-card: 28px;
+  --radius-pill: 999px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #0e1014;
+    --color-surface: #181b22;
+    --color-surface-muted: #23262e;
+    --color-border: #2a2d36;
+    --color-foreground: #f2f1ed;
+    --color-muted: #9a9993;
+    --color-inverse: #14171f;
+    --color-inverse-surface: #f2f1ed;
+    --color-brand: #3f9d72;
+    --color-brand-track: #2a2d36;
+
+    --color-tint-green: #1d3a2b;
+    --color-tint-green-fg: #7fd4a6;
+    --color-tint-amber: #3d3014;
+    --color-tint-amber-fg: #f0c36a;
+    --color-tint-blue: #1d2b47;
+    --color-tint-blue-fg: #8fb3f0;
+    --color-tint-violet: #2e2548;
+    --color-tint-violet-fg: #b9a3ef;
+    --color-tint-slate: #272b36;
+    --color-tint-slate-fg: #aab2c6;
+    --color-tint-red: #43211d;
+    --color-tint-red-fg: #f09a8d;
+  }
+}
