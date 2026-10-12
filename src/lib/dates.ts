@@ -43,3 +43,13 @@ export function formatMonthYear(date: string): string {
 export function getMonthKey(date: string): string {
   return date.slice(0, 7);
 }
+
+/** "October" from "YYYY-MM" or "YYYY-MM-DD" */
+export function formatMonthName(date: string): string {
+  return MONTHS[Number(date.slice(5, 7)) - 1];
+}
+
+/** "Oct" from "YYYY-MM" or "YYYY-MM-DD" */
+export function formatMonthShort(date: string): string {
+  return formatMonthName(date).slice(0, 3);
+}

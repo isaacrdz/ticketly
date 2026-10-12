@@ -1,5 +1,5 @@
-import { PlaceholderScreen } from '@/components/ui/placeholder-screen';
+import { ReportsScreen } from '@/features/reports/components/reports-screen';
 
 export default function ReportsRoute() {
-  return <PlaceholderScreen title="Reports" />;
+  return <ReportsScreen />;
 }

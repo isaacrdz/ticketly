@@ -14,6 +14,10 @@
   --color-inverse-surface: #14171f;
   --color-brand: #2f7653;
   --color-brand-track: #e6e4dc;
+  --color-on-brand: #ffffff;
+  --color-pro: #14171f;
+  --color-pro-foreground: #f2f1ed;
+  --color-pro-muted: #a9a8a2;
 
   --color-tint-green: #d4f1e0;
   --color-tint-green-fg: #1c5a3a;
@@ -50,6 +54,7 @@
     --color-inverse-surface: #f2f1ed;
     --color-brand: #3f9d72;
     --color-brand-track: #2a2d36;
+    --color-pro: #1f232c;
 
     --color-tint-green: #1d3a2b;
     --color-tint-green-fg: #7fd4a6;

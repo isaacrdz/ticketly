@@ -1,7 +1,7 @@
 // Temporary mock data for the dashboard UI until the local database exists.
 // Mirrors the real model: money in minor units, purchaseDate as YYYY-MM-DD.
 
-import type { Category, Expense, PlanUsage } from '@/features/expenses/types';
+import type { Category, Expense, MonthlyTotal, PlanUsage } from '@/features/expenses/types';
 
 export const MOCK_PLAN_USAGE: PlanUsage = {
   planId: 'free',
@@ -72,7 +72,7 @@ export const MOCK_EXPENSES: Expense[] = [
     id: 'e1a1b2c3-0005-4a00-8000-000000000005',
     merchant: 'Blue Bottle Coffee',
     purchaseDate: '2026-10-05',
-    totalMinor: 3775,
+    totalMinor: 1875,
     currency: 'USD',
     taxMinor: 300,
     categoryId: 'c1a1b2c3-0002-4a00-8000-000000000002',
@@ -84,7 +84,7 @@ export const MOCK_EXPENSES: Expense[] = [
     id: 'e1a1b2c3-0006-4a00-8000-000000000006',
     merchant: 'Delta Air Lines',
     purchaseDate: '2026-10-03',
-    totalMinor: 36520,
+    totalMinor: 38420,
     currency: 'USD',
     taxMinor: null,
     categoryId: 'c1a1b2c3-0004-4a00-8000-000000000004',
@@ -92,4 +92,13 @@ export const MOCK_EXPENSES: Expense[] = [
     source: 'manual',
     syncStatus: 'synced',
   },
+];
+
+// Totals for the months before the current one. The current month is derived from MOCK_EXPENSES.
+export const MOCK_PREVIOUS_MONTHLY_TOTALS: MonthlyTotal[] = [
+  { month: '2026-05', totalMinor: 98420, currency: 'USD' },
+  { month: '2026-06', totalMinor: 112075, currency: 'USD' },
+  { month: '2026-07', totalMinor: 104310, currency: 'USD' },
+  { month: '2026-08', totalMinor: 121890, currency: 'USD' },
+  { month: '2026-09', totalMinor: 136834, currency: 'USD' },
 ];
