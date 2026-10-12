@@ -27,3 +27,10 @@ export interface PlanUsage {
   scanCount: number;
   monthlyScanLimit: number | null;
 }
+
+export interface MonthlyTotal {
+  /** YYYY-MM */
+  month: string;
+  totalMinor: number;
+  currency: string;
+}
