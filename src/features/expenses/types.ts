@@ -1,3 +1,5 @@
+import type { ImageRequireSource } from 'react-native';
+
 export type CategoryColor = 'green' | 'amber' | 'blue' | 'violet' | 'slate' | 'red';
 
 export type CategoryIcon = 'shopping-basket' | 'utensils' | 'car' | 'plane' | 'package' | 'fuel';
@@ -33,4 +35,15 @@ export interface MonthlyTotal {
   month: string;
   totalMinor: number;
   currency: string;
+}
+
+export interface Receipt {
+  id: string;
+  expenseId: string;
+  mimeType: string;
+  width: number;
+  height: number;
+  sizeBytes: number;
+  /** Local image for now. The real source is a signed URL or local_uri. */
+  image: ImageRequireSource;
 }

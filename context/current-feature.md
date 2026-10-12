@@ -1,18 +1,34 @@
-# Current Feature
-
-<!-- Feature Name -->
+# Current Feature: Expense Detail Screen
 
 ## Status
 
-<!-- Not Started|In Progress|Completed -->
+In Progress
 
 ## Goals
 
-<!-- Goals & requirements -->
+- Replace the placeholder `src/app/expense/[id].tsx` with a thin route that validates the `id` param (strings, arrays, or missing count as invalid) and renders a component from `src/features/expenses/`
+- Action bar drawn in the screen: round back, edit (pencil), and delete (trash, danger red) buttons, each at least 44x44 pt; back uses `router.back()` with a fallback to the Expenses tab when there is no history
+- Summary card: centered category icon badge, merchant, large mono total, dashed divider, and Date (long format), Category, Tax (hidden when absent), Currency, and Notes (only when present) rows
+- Receipt image section: "RECEIPT IMAGE" label and a rounded `expo-image` card sized from the receipt's width and height, with a "No receipt attached" placeholder, a loading placeholder, and an image-load-failure message
+- Edit navigates to `/review` with the expense id (placeholder `src/app/review.tsx` if missing)
+- Delete shows a native confirmation (Cancel / destructive Delete); on confirm it removes the expense from the mock query cache and goes back, so Expenses and Reports update their totals and counts
+- Loading skeleton, "Expense not found" state (with a button back to Expenses), and a "Saved on this device, waiting to sync" note for pending expenses
+- Add `MOCK_RECEIPTS` (shaped like the `receipts` table) and one or two fake sample receipt images under `assets/receipts/`; leave at least one scanned expense and the manual expense (Delta Air Lines) without a receipt
+- `useExpense(id)` hook (builds on the `useExpenses` query; returns expense, category, and receipt, or not-found), `useDeleteExpense` mutation hook, and a `formatLongDate` helper in `src/lib/dates.ts`; money only through `formatMoney`
+- Accessibility labels on the action buttons and receipt image, and the category icon marked decorative
+- NativeWind tokens only, light and dark mode, no `any` types
+- Tapping any Expenses row opens a detail that matches the row
+- `npx expo lint` and `npx tsc --noEmit` pass
 
 ## Notes
 
-<!-- Any extra notes -->
+- Spec: `context/features/expense-detail-screen.md`
+- Visual references: `context/screenshots/ticketly-expense-detail.png` (layout) and `ticketly-expenses.png` (where the user comes from). Reuses `Card`, `IconBadge`, `SyncNotice`, tokens, and helpers from the earlier screens.
+- UI only, driven by mock data. No SQLite, Supabase, Storage, signed URLs, or sync wiring. Keep the image source behind a small function or prop so the real private-bucket source can replace it later.
+- Real delete later is a soft delete (`deleted_at`) written with the outbox in one transaction; structure the code so only the mutation function changes.
+- The screenshot's receipt (Blue Bottle Coffee) on the Whole Foods expense is just a placeholder; it does not have to match. Use fake or generic receipts only.
+- Install packages with `npx expo install` (`expo-image` is already installed; `expo-haptics` only if used), and check the SDK 57 docs before using any Expo or Router API.
+- Out of scope: real data layer, the review and edit form, full-screen zoom viewer, re-scanning or sharing the receipt, OCR text and low-confidence highlights, line items, undo after delete.
 
 ## History
 
