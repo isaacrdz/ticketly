@@ -27,15 +27,19 @@ const TINTS: Record<CategoryColor, string> = {
 interface IconBadgeProps {
   icon: CategoryIcon;
   color: CategoryColor;
+  size?: 'md' | 'lg';
 }
 
-export function IconBadge({ icon, color }: IconBadgeProps) {
+export function IconBadge({ icon, color, size = 'md' }: IconBadgeProps) {
   const colors = useThemeColors();
   const Icon = ICONS[icon];
 
   return (
-    <View className={`size-12 items-center justify-center rounded-pill ${TINTS[color]}`}>
-      <Icon size={22} color={colors[color]} />
+    <View
+      accessibilityElementsHidden
+      importantForAccessibility="no-hide-descendants"
+      className={`items-center justify-center rounded-pill ${size === 'lg' ? 'size-20' : 'size-12'} ${TINTS[color]}`}>
+      <Icon size={size === 'lg' ? 32 : 22} color={colors[color]} />
     </View>
   );
 }

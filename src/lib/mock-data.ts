@@ -1,7 +1,7 @@
 // Temporary mock data for the dashboard UI until the local database exists.
 // Mirrors the real model: money in minor units, purchaseDate as YYYY-MM-DD.
 
-import type { Category, Expense, MonthlyTotal, PlanUsage } from '@/features/expenses/types';
+import type { Category, Expense, MonthlyTotal, PlanUsage, Receipt } from '@/features/expenses/types';
 
 export const MOCK_PLAN_USAGE: PlanUsage = {
   planId: 'free',
@@ -101,4 +101,44 @@ export const MOCK_PREVIOUS_MONTHLY_TOTALS: MonthlyTotal[] = [
   { month: '2026-07', totalMinor: 104310, currency: 'USD' },
   { month: '2026-08', totalMinor: 121890, currency: 'USD' },
   { month: '2026-09', totalMinor: 136834, currency: 'USD' },
+];
+
+// Uber (scan) and Delta Air Lines (manual) have no receipt on purpose, to show the empty state.
+export const MOCK_RECEIPTS: Receipt[] = [
+  {
+    id: 'a1a1b2c3-0001-4a00-8000-000000000001',
+    expenseId: 'e1a1b2c3-0001-4a00-8000-000000000001',
+    mimeType: 'image/png',
+    width: 900,
+    height: 900,
+    sizeBytes: 87719,
+    image: require('../../assets/receipts/receipt-grocery.png'),
+  },
+  {
+    id: 'a1a1b2c3-0003-4a00-8000-000000000003',
+    expenseId: 'e1a1b2c3-0003-4a00-8000-000000000003',
+    mimeType: 'image/png',
+    width: 900,
+    height: 900,
+    sizeBytes: 63581,
+    image: require('../../assets/receipts/receipt-generic.png'),
+  },
+  {
+    id: 'a1a1b2c3-0004-4a00-8000-000000000004',
+    expenseId: 'e1a1b2c3-0004-4a00-8000-000000000004',
+    mimeType: 'image/png',
+    width: 900,
+    height: 900,
+    sizeBytes: 63581,
+    image: require('../../assets/receipts/receipt-generic.png'),
+  },
+  {
+    id: 'a1a1b2c3-0005-4a00-8000-000000000005',
+    expenseId: 'e1a1b2c3-0005-4a00-8000-000000000005',
+    mimeType: 'image/png',
+    width: 900,
+    height: 900,
+    sizeBytes: 63581,
+    image: require('../../assets/receipts/receipt-generic.png'),
+  },
 ];

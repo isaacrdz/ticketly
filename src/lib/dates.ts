@@ -1,3 +1,4 @@
+const WEEKDAYS_LONG = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const WEEKDAYS = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 const MONTHS = [
   'January',
@@ -52,4 +53,10 @@ export function formatMonthName(date: string): string {
 /** "Oct" from "YYYY-MM" or "YYYY-MM-DD" */
 export function formatMonthShort(date: string): string {
   return formatMonthName(date).slice(0, 3);
+}
+
+/** "Saturday, October 10, 2026" */
+export function formatLongDate(date: string): string {
+  const { year, month, day, weekday } = parseDate(date);
+  return `${WEEKDAYS_LONG[weekday]}, ${MONTHS[month - 1]} ${day}, ${year}`;
 }

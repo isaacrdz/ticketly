@@ -1,9 +1,10 @@
 import { useLocalSearchParams } from 'expo-router';
 
-import { PlaceholderScreen } from '@/components/ui/placeholder-screen';
+import { ExpenseDetailScreen } from '@/features/expenses/components/expense-detail-screen';
 
 export default function ExpenseDetailRoute() {
-  const { id } = useLocalSearchParams<{ id: string }>();
+  const { id } = useLocalSearchParams<{ id?: string | string[] }>();
+  const expenseId = typeof id === 'string' && id.length > 0 ? id : null;
 
-  return <PlaceholderScreen title={`Expense ${id}`} />;
+  return <ExpenseDetailScreen expenseId={expenseId} />;
 }

@@ -27,7 +27,7 @@ export function SpendingTrendCard({
       <View className="gap-1">
         <Text className="font-sans text-base text-muted">Last {months.length} months</Text>
         <Text
-          className="font-mono-bold text-4xl text-foreground"
+          className="font-mono-bold text-4xl leading-tight text-foreground"
           style={{ fontVariant: ['tabular-nums'] }}
           adjustsFontSizeToFit
           numberOfLines={1}>

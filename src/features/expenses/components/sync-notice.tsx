@@ -3,7 +3,13 @@ import { Text, View } from 'react-native';
 
 import { useThemeColors } from '@/lib/theme';
 
-export function SyncNotice({ pendingCount }: { pendingCount: number }) {
+interface SyncNoticeProps {
+  pendingCount?: number;
+  /** Overrides the default text, for example on a single expense */
+  message?: string;
+}
+
+export function SyncNotice({ pendingCount = 1, message }: SyncNoticeProps) {
   const colors = useThemeColors();
 
   return (
@@ -12,8 +18,8 @@ export function SyncNotice({ pendingCount }: { pendingCount: number }) {
       className="flex-row items-center gap-3 rounded-2xl bg-surface-muted px-4 py-3">
       <CloudOff size={18} color={colors.muted} />
       <Text className="flex-1 font-sans text-base text-muted">
-        {pendingCount} {pendingCount === 1 ? 'expense' : 'expenses'} waiting to sync — saved on this
-        device
+        {message ??
+          `${pendingCount} ${pendingCount === 1 ? 'expense' : 'expenses'} waiting to sync — saved on this device`}
       </Text>
     </View>
   );

@@ -13,10 +13,10 @@ interface MonthSummaryProps {
 export function MonthSummary({ monthLabel, totalMinor, currency, receiptCount }: MonthSummaryProps) {
   return (
     <View className="flex-row items-start justify-between">
-      <View className="flex-1 gap-1">
+      <View className="flex-1 gap-2">
         <Text className="font-sans text-lg text-muted">{monthLabel}</Text>
         <Text
-          className="font-mono-bold text-5xl text-foreground"
+          className="py-1 font-mono-bold text-5xl leading-tight text-foreground"
           style={{ fontVariant: ['tabular-nums'] }}
           adjustsFontSizeToFit
           numberOfLines={1}>
